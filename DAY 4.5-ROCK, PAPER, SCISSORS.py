@@ -27,19 +27,29 @@ scissors = '''
       (____)
 ---.__(___)
 '''
-my_choice = int(
+images = [rock, paper, scissors]
+user_choice = int(
     input('What do you Choose? Type 0 for Rock, 1 for Paper or 2 for Scissors\n'))
+
+if user_choice >= 0 and user_choice <= 3:
+    print(images[user_choice])
 
 computer_choice = random.randint(0, 2)
 
-print(f'Computer Chose: {computer_choice}')
+print(f'Computer Chose: ')
+print(images[computer_choice])
 
-if my_choice == 1 and computer_choice == 2:
-    print('You win!')
-elif my_choice == 2 and computer_choice == 0:
-    print('Computer wins!')
-elif my_choice == 1 and computer_choice == 2:
-    print('Computer wins!')
+if user_choice >= 3 or user_choice < 0:
+    print('Invalid number. You lose!')
+elif user_choice == 0 and computer_choice == 2:
+    print('You win, yayy!')
+elif user_choice == 2 and computer_choice == 0:
+    print('You lose, try again.')
+elif user_choice > computer_choice:
+    print('You win, yayy!')
+elif computer_choice > user_choice:
+    print('You lose, try again!')
+elif computer_choice == user_choice:
+    print('It is a tie!')
 else:
-    print('Emapami')
-will come back to this
+    print('You typed an invalid number')
